@@ -31,4 +31,8 @@ describe("Keypad tests", () => {
     wrapper.setProps({operators: ['+','-','*','/']});
     expect(wrapper.find('.operators-container').text()).toEqual('+-*/')
   })
+
+  it('Should render Key component', () => {
+    expect(wrapper.find('Key').length).toEqual(1);
+  })
 });
