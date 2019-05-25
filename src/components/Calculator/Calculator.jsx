@@ -25,6 +25,10 @@ class Calculator extends React.Component {
   updateDisplay = value => {
     if (this.state.displayedValue === "0") {
       this.setState({ displayedValue: value });
+    } else if (value === 'CE') {
+      this.setState(state=> {
+        return {displayedValue: state.displayedValue.slice(0,state.displayedValue.length-1)}
+      })
     } else {
       this.setState(state => {
         return { displayedValue: state.displayedValue + value };
