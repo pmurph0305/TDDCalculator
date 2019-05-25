@@ -237,4 +237,12 @@ describe('Calculate callOperator tests', () => {
     wrapper.instance().callOperator();
     expect(wrapper.state('displayedValue')).toEqual('0');
   })
+
+  it("Correctly uses decimal places in calculations", () => {
+    wrapper.setState({ storedValue: '11' });
+    wrapper.setState({ displayedValue: '5.5' });
+    wrapper.setState({ selectedOperator: '/' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('2');
+  })
 })
