@@ -26,9 +26,15 @@ class Calculator extends React.Component {
     if (this.state.displayedValue === "0") {
       this.setState({ displayedValue: value });
     } else if (value === 'CE') {
-      this.setState(state=> {
-        return {displayedValue: state.displayedValue.slice(0,state.displayedValue.length-1)}
-      })
+      if (this.state.displayedValue.length > 1) {
+        this.setState(state=> {
+          return {displayedValue: state.displayedValue.slice(0,state.displayedValue.length-1)}
+        })
+      } else {
+        this.setState(state => {
+          return { displayedValue: "0"};
+        });
+      }
     } else if (value === '.') {
       if (this.state.displayedValue.includes('.') === false) {
         this.setState(state => {
