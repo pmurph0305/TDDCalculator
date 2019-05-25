@@ -24,7 +24,7 @@ class Calculator extends React.Component {
 
   updateDisplay = value => {
     let { displayedValue, storedValue } = this.state;
-    if (displayedValue === storedValue && value!='CE') {
+    if (displayedValue === storedValue && value !== 'CE') {
       displayedValue = value;
     } else if (value === "CE") {
       if (displayedValue.length > 1 && displayedValue !== "CE") {
