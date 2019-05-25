@@ -23,30 +23,25 @@ class Calculator extends React.Component {
   }
 
   updateDisplay = value => {
-    if (this.state.displayedValue === "0") {
-      this.setState({ displayedValue: value });
+    let {displayedValue} = this.state;
+    if (displayedValue)
+    if (displayedValue=== "0") {
+      displayedValue = value;
     } else if (value === 'CE') {
-      if (this.state.displayedValue.length > 1) {
-        this.setState(state=> {
-          return {displayedValue: state.displayedValue.slice(0,state.displayedValue.length-1)}
-        })
+      if (displayedValue.length > 1) {
+        displayedValue = displayedValue.slice(0,displayedValue.length-1);
       } else {
-        this.setState(state => {
-          return { displayedValue: "0"};
-        });
+        displayedValue = '0'
       }
     } else if (value === '.') {
-      if (this.state.displayedValue.includes('.') === false) {
-        this.setState(state => {
-          return { displayedValue: state.displayedValue + value };
-        });
+      if (displayedValue.includes('.') === false) {
+        displayedValue += '.'
       }
     }
     else {
-      this.setState(state => {
-        return { displayedValue: state.displayedValue + value };
-      });
+      displayedValue += value;
     }
+    this.setState({displayedValue: displayedValue})
   };
 
   callOperator = () => {};
