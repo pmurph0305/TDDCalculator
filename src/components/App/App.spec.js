@@ -7,6 +7,8 @@ describe('App tests', () => {
     let wrapper;
     beforeEach(() => wrapper = shallow(<App/>))
 
+    it('Should match snapshot', () => expect(wrapper).toMatchSnapshot());
+
     it('Should render a <div/>', () => {
         expect(wrapper.find('div').length).toEqual(1);
     })
