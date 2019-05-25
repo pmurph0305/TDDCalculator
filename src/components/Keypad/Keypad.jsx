@@ -26,7 +26,7 @@ const KeyPad = ({
     return (
       <Key
         key={operator}
-        keyAction={callOperator}
+        keyAction={setOperator}
         keyType={"operator-key"}
         keyValue={operator}
       />

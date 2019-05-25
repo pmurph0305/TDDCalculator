@@ -27,6 +27,10 @@ class Calculator extends React.Component {
   }
 
   callOperator = () => {
+
+  }
+
+  setOperator = () => {
     
   }
 

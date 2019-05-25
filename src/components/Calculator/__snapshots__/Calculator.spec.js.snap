@@ -48,7 +48,7 @@ ShallowWrapper {
                               "*",
                             ]
           }
-          setOperator={undefined}
+          setOperator={[Function]}
           updateDisplay={[Function]}
 />,
       ],
@@ -93,7 +93,7 @@ ShallowWrapper {
             "/",
             "*",
           ],
-          "setOperator": undefined,
+          "setOperator": [Function],
           "updateDisplay": [Function],
         },
         "ref": null,
@@ -139,7 +139,7 @@ ShallowWrapper {
                                     "*",
                                   ]
             }
-            setOperator={undefined}
+            setOperator={[Function]}
             updateDisplay={[Function]}
 />,
         ],
@@ -184,7 +184,7 @@ ShallowWrapper {
               "/",
               "*",
             ],
-            "setOperator": undefined,
+            "setOperator": [Function],
             "updateDisplay": [Function],
           },
           "ref": null,
