@@ -1,20 +1,24 @@
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import Keypad from './Keypad';
+import Keypad from "./Keypad";
 
-describe('Keypad tests', () => {
+describe("Keypad tests", () => {
   let wrapper;
-  beforeEach(() => wrapper=shallow(
-  <Keypad 
-    callOperator={jest.fn()}
+  beforeEach(
+    () =>
+      (wrapper = shallow(
+        <Keypad
+          callOperator={jest.fn()}
           numbers={[]}
           operators={[]}
           setOperator={jest.fn()}
           updateDisplay={jest.fn()}
-  />))
+        />
+      ))
+  );
 
-  it('Renders a div', () => {
-    expect(wrapper.find('div').length).toEqual(1);
-  })
-})
+  it("Renders a div", () => {
+    expect(wrapper.find("div").length).toEqual(1);
+  });
+});

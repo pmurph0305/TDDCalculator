@@ -30,4 +30,8 @@ describe("Calculator tests", () => {
     ).toEqual(true);
   });
 
+  it('Should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
+
 });
