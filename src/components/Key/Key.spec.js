@@ -19,4 +19,8 @@ describe('Key tests', () => {
     wrapper.setProps({ keyValue: 'testvalue' })
     expect(wrapper.text()).toEqual('testvalue')
   })
+
+  it('Should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
 })
