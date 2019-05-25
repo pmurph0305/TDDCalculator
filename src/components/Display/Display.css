@@ -1,0 +1,24 @@
+.display-container {
+  /* Flex */
+  display: flex;
+  align-items: center;
+
+  /* Color */
+  background: var(--display-background-color);
+
+  /* Padding */
+  padding: 0 5%;
+  /* Dimensions */
+  height: var(--display-height);
+  width: var(--display-width);
+}
+
+.display-value {
+  color: var(--display-text-color);
+  font-size: var(--display-text-size);
+  font-family: var(--main-font);
+  font-weight: var(--display-text-weight);
+  
+  margin-left: auto;
+  overflow: hidden;
+}
