@@ -26,6 +26,10 @@ class Calculator extends React.Component {
     
   }
 
+  callOperator = () => {
+    
+  }
+
   render() {
     const { displayedValue, numbers, operators } = this.state;
     return (

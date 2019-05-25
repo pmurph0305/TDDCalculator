@@ -23,7 +23,7 @@ ShallowWrapper {
           displayedValue="0"
 />,
         <KeyPad
-          callOperator={undefined}
+          callOperator={[Function]}
           numbers={
                     Array [
                               "9",
@@ -72,7 +72,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "callOperator": undefined,
+          "callOperator": [Function],
           "numbers": Array [
             "9",
             "8",
@@ -114,7 +114,7 @@ ShallowWrapper {
             displayedValue="0"
 />,
           <KeyPad
-            callOperator={undefined}
+            callOperator={[Function]}
             numbers={
                         Array [
                                     "9",
@@ -163,7 +163,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "callOperator": undefined,
+            "callOperator": [Function],
             "numbers": Array [
               "9",
               "8",
