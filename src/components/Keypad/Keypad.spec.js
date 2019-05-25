@@ -33,6 +33,11 @@ describe("Keypad tests", () => {
   })
 
   it('Should render Key component', () => {
-    expect(wrapper.find('Key').length).toEqual(1);
+    const numbers = ['0', '1', '2'];
+    const operators = ['-', '*'];
+    const submit = 1;
+    const keyTotal = numbers.length + operators.length + submit;
+    wrapper.setProps({ numbers, operators })
+    expect(wrapper.find('Key').length).toEqual(keyTotal);
   })
 });
