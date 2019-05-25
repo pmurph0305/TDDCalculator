@@ -14,4 +14,9 @@ describe('Key tests', () => {
   it('Should render a div', () => {
     expect(wrapper.find('div').length).toEqual(1);
   })
+
+  it('Should contain a keyValue', () => {
+    wrapper.setProps({ keyValue: 'testvalue' })
+    expect(wrapper.text()).toEqual('testvalue')
+  })
 })
