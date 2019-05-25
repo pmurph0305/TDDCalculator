@@ -129,6 +129,18 @@ describe("Calculator updateDisplay tests", () => {
     wrapper.instance().updateDisplay("CE");
     expect(wrapper.state("displayedValue")).toEqual("0");
   });
+
+  it('resets displayed after callOperator on new input', () => {
+    wrapper.setState({ storedValue: '5' });
+    wrapper.setState({ displayedValue: '2' });
+    wrapper.setState({ selectedOperator: '-' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('3');
+    expect(wrapper.state('storedValue')).toEqual('3');
+    wrapper.instance().updateDisplay('1');
+    expect(wrapper.state('displayedValue')).toEqual('1');
+
+  })
 });
 
 describe("Calculate setOperator tests", () => {
@@ -173,6 +185,7 @@ describe("Calculate setOperator tests", () => {
     wrapper.instance().setOperator('+');
     expect(wrapper.state('selectedOperator')).toEqual('+')
     expect(wrapper.state('storedValue')).toEqual('12');
+    expect(wrapper.state('displayedValue')).toEqual('0');
   })
   
 });
