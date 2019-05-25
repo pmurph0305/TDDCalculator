@@ -12,9 +12,9 @@ class Calculator extends React.Component {
       // Value to be displayed with Display
       displayedValue: "0",
       // Numbers for Keys
-      numbers: [],
+      numbers: ['9', '8', '7', '6', '5', '4', '3', '2', '1', '.', '0','CE'],
       // Operators for Keys
-      operators: [],
+      operators: ['+', '-', '/', '*'],
       // Operator selected for math
       selectedOperator: "",
       // Stored calculated value for math

@@ -24,8 +24,30 @@ ShallowWrapper {
 />,
         <KeyPad
           callOperator={undefined}
-          numbers={Array []}
-          operators={Array []}
+          numbers={
+                    Array [
+                              "9",
+                              "8",
+                              "7",
+                              "6",
+                              "5",
+                              "4",
+                              "3",
+                              "2",
+                              "1",
+                              ".",
+                              "0",
+                              "CE",
+                            ]
+          }
+          operators={
+                    Array [
+                              "+",
+                              "-",
+                              "/",
+                              "*",
+                            ]
+          }
           setOperator={undefined}
           updateDisplay={undefined}
 />,
@@ -51,8 +73,26 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "callOperator": undefined,
-          "numbers": Array [],
-          "operators": Array [],
+          "numbers": Array [
+            "9",
+            "8",
+            "7",
+            "6",
+            "5",
+            "4",
+            "3",
+            "2",
+            "1",
+            ".",
+            "0",
+            "CE",
+          ],
+          "operators": Array [
+            "+",
+            "-",
+            "/",
+            "*",
+          ],
           "setOperator": undefined,
           "updateDisplay": undefined,
         },
@@ -75,8 +115,30 @@ ShallowWrapper {
 />,
           <KeyPad
             callOperator={undefined}
-            numbers={Array []}
-            operators={Array []}
+            numbers={
+                        Array [
+                                    "9",
+                                    "8",
+                                    "7",
+                                    "6",
+                                    "5",
+                                    "4",
+                                    "3",
+                                    "2",
+                                    "1",
+                                    ".",
+                                    "0",
+                                    "CE",
+                                  ]
+            }
+            operators={
+                        Array [
+                                    "+",
+                                    "-",
+                                    "/",
+                                    "*",
+                                  ]
+            }
             setOperator={undefined}
             updateDisplay={undefined}
 />,
@@ -102,8 +164,26 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "callOperator": undefined,
-            "numbers": Array [],
-            "operators": Array [],
+            "numbers": Array [
+              "9",
+              "8",
+              "7",
+              "6",
+              "5",
+              "4",
+              "3",
+              "2",
+              "1",
+              ".",
+              "0",
+              "CE",
+            ],
+            "operators": Array [
+              "+",
+              "-",
+              "/",
+              "*",
+            ],
             "setOperator": undefined,
             "updateDisplay": undefined,
           },
