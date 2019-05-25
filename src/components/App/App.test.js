@@ -12,6 +12,6 @@ describe('App tests', () => {
     })
 
     it('Should contain a calculator element', () => {
-        expect(wrapper.containsMatchElement(<Calculator/>)).toEqual(true);
+        expect(wrapper.containsMatchingElement(<Calculator/>)).toEqual(true);
     })
 })
