@@ -22,8 +22,8 @@ class Calculator extends React.Component {
     };
   }
 
-  updateDisplay = () => {
-    
+  updateDisplay = (value) => {
+    this.setState({displayedValue: value})
   }
 
   callOperator = () => {
@@ -31,7 +31,7 @@ class Calculator extends React.Component {
   }
 
   setOperator = () => {
-    
+
   }
 
   render() {
