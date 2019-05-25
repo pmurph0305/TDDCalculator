@@ -82,4 +82,26 @@ describe('Calculator updateDisplay tests', () => {
     wrapper.instance().updateDisplay('2');
     expect(wrapper.state('displayedValue')).toEqual('32');
   })
+
+  it('removes leading "0" from displayValue', () => {
+    wrapper.instance().updateDisplay('0');
+    expect(wrapper.state('displayedValue')).toEqual('0');
+    wrapper.instance().updateDisplay('1');
+    expect(wrapper.state('displayedValue')).toEqual('1');
+  })
+
+  it ('does not allow multiple leading "0"s in displayValue', () => {
+    wrapper.instance().updateDisplay('0');
+    wrapper.instance().updateDisplay('0');
+    wrapper.instance().updateDisplay('0');
+    expect(wrapper.state('displayedValue')).toEqual('0');
+  })
+
+  it('removes last char of displayValue', () => {
+    wrapper.instance().updateDisplay('3');
+    wrapper.instance().updateDisplay('4');
+    wrapper.instance().updateDisplay('CE');
+    expect(wrapper.state('displayedValue')).toEqual('3');
+
+  })
 })
