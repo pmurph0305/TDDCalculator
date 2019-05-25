@@ -1,9 +1,9 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import Keypad from "./Keypad";
 
-describe("Keypad tests", () => {
+describe("Keypad shallow tests", () => {
   let wrapper;
   beforeEach(
     () =>
@@ -18,9 +18,38 @@ describe("Keypad tests", () => {
       ))
   );
 
-  it("Renders 3 divs", () => {
-    expect(wrapper.find("div").length).toEqual(3);
+  it("Renders 4 divs", () => {
+    expect(wrapper.find("div").length).toEqual(4);
   });
+
+  it('Should render Key component', () => {
+    const numbers = ['0', '1', '2'];
+    const operators = ['-', '*'];
+    const submit = 1;
+    const keyTotal = numbers.length + operators.length + submit;
+    wrapper.setProps({ numbers, operators })
+    expect(wrapper.find('Key').length).toEqual(keyTotal);
+  })
+
+  it('Should match snapshot', () => {
+    expect(wrapper).toMatchSnapshot();
+  })
+});
+
+describe('Keypad mount tests', () => {
+  let wrapper;
+  beforeEach(
+    () =>
+      (wrapper = mount(
+        <Keypad
+          callOperator={jest.fn()}
+          numbers={[]}
+          operators={[]}
+          setOperator={jest.fn()}
+          updateDisplay={jest.fn()}
+        />
+      ))
+  );
 
   it("Renders the values of numbers", () => {
     wrapper.setProps({numbers: ['0','1','2','3']});
@@ -31,13 +60,4 @@ describe("Keypad tests", () => {
     wrapper.setProps({operators: ['+','-','*','/']});
     expect(wrapper.find('.operators-container').text()).toEqual('+-*/')
   })
-
-  it('Should render Key component', () => {
-    const numbers = ['0', '1', '2'];
-    const operators = ['-', '*'];
-    const submit = 1;
-    const keyTotal = numbers.length + operators.length + submit;
-    wrapper.setProps({ numbers, operators })
-    expect(wrapper.find('Key').length).toEqual(keyTotal);
-  })
-});
+})
