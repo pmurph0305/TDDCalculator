@@ -1,12 +1,12 @@
 import React from "react";
 
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 import Calculator from "./Calculator";
 import Display from "../Display/Display";
 import Keypad from '../Keypad/Keypad';
 
-describe("Calculator tests", () => {
+describe("Shallow Calculator tests", () => {
   let wrapper;
 
   beforeEach(() => (wrapper = shallow(<Calculator />)));
@@ -35,3 +35,19 @@ describe("Calculator tests", () => {
   })
 
 });
+
+describe('Mounted Calculator Tests', () => {
+  let wrapper;
+
+  beforeEach(() => (wrapper = mount(<Calculator />)));
+
+  it('Calls update display when a number key is clicked', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'updateDisplay');
+    wrapper.instance().forceUpdate();
+    expect(spy).toHaveBeenCalledTimes(0);
+    wrapper.find('.number-key').first().simulate('click');
+    wrapper.find('.number-key').first().simulate('click');
+    expect(spy).toHaveBeenCalledTimes(2);
+  })
+
+})
