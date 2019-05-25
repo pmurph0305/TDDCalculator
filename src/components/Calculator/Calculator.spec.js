@@ -1,20 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import { shallow } from 'enzyme';
+import { shallow } from "enzyme";
 
-import Calculator from './Calculator';
-import Display from '../Display/Display';
+import Calculator from "./Calculator";
+import Display from "../Display/Display";
 
-describe('Calculator tests', () => {
-    let wrapper;
+describe("Calculator tests", () => {
+  let wrapper;
 
-    beforeEach(() => wrapper=shallow(<Calculator/>));
+  beforeEach(() => (wrapper = shallow(<Calculator />)));
 
-    it('Renders a div', () => {
-        expect(wrapper.find('div').length).toEqual(1);
-    })
+  it("Renders a div", () => {
+    expect(wrapper.find("div").length).toEqual(1);
+  });
 
-    it('Contains the <Display /> compoennt', () => {
-        expect(wrapper.containsMatchingElement(<Display />)).toEqual(true);
-    })
-})
+  it("Contains the <Display /> component", () => {
+    expect(
+      wrapper.containsMatchingElement(
+        <Display displayedValue={wrapper.instance().state.displayedValue} />
+      )
+    ).toEqual(true);
+  });
+});

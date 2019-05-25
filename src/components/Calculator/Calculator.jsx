@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Display from '../Display/Display'
+
 import './Calculator.css'
 
 class Calculator extends React.Component {
@@ -7,7 +9,7 @@ class Calculator extends React.Component {
         super(props);
         this.state = {
             // Value to be displayed with Display
-            displayValue: '0',
+            displayedValue: '0',
             // Numbers for Keys
             numbers: [],
             // Operators for Keys
@@ -20,8 +22,13 @@ class Calculator extends React.Component {
     }
 
     render() {
+        const { displayedValue } = this.state;
         return(
-            <div className='calculator-container'></div>
+            <div className='calculator-container'>
+                <Display 
+                    displayedValue={displayedValue}
+                />
+            </div>
         )
     }
 }
