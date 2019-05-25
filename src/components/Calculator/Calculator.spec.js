@@ -4,7 +4,7 @@ import { shallow, mount } from "enzyme";
 
 import Calculator from "./Calculator";
 import Display from "../Display/Display";
-import Keypad from '../Keypad/Keypad';
+import Keypad from "../Keypad/Keypad";
 
 describe("Shallow Calculator tests", () => {
   let wrapper;
@@ -19,7 +19,7 @@ describe("Shallow Calculator tests", () => {
     expect(
       wrapper.containsAllMatchingElements([
         <Display displayedValue={wrapper.instance().state.displayedValue} />,
-        <Keypad 
+        <Keypad
           callOperator={wrapper.instance().callOperator}
           numbers={wrapper.instance().state.numbers}
           operators={wrapper.instance().state.operators}
@@ -30,92 +30,141 @@ describe("Shallow Calculator tests", () => {
     ).toEqual(true);
   });
 
-  it('Should match snapshot', () => {
+  it("Should match snapshot", () => {
     expect(wrapper).toMatchSnapshot();
-  })
-
+  });
 });
 
-describe('Mounted Calculator Tests', () => {
+describe("Mounted Calculator Tests", () => {
   let wrapper;
 
   beforeEach(() => (wrapper = mount(<Calculator />)));
 
-  it('Calls update display when a number key is clicked', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'updateDisplay');
+  it("Calls update display when a number key is clicked", () => {
+    const spy = jest.spyOn(wrapper.instance(), "updateDisplay");
     wrapper.instance().forceUpdate();
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('.number-key').first().simulate('click');
-    wrapper.find('.number-key').first().simulate('click');
+    wrapper
+      .find(".number-key")
+      .first()
+      .simulate("click");
+    wrapper
+      .find(".number-key")
+      .first()
+      .simulate("click");
     expect(spy).toHaveBeenCalledTimes(2);
-  })
+  });
 
-  it('Calls callOperator when submit key is clicked', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'callOperator');
+  it("Calls callOperator when submit key is clicked", () => {
+    const spy = jest.spyOn(wrapper.instance(), "callOperator");
     wrapper.instance().forceUpdate();
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('.submit-key').first().simulate('click');
+    wrapper
+      .find(".submit-key")
+      .first()
+      .simulate("click");
     expect(spy).toHaveBeenCalledTimes(1);
-  })
+  });
 
-  it('Calls setOperator when operator key is clicked', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'setOperator');
+  it("Calls setOperator when operator key is clicked", () => {
+    const spy = jest.spyOn(wrapper.instance(), "setOperator");
     wrapper.instance().forceUpdate();
     expect(spy).toHaveBeenCalledTimes(0);
-    wrapper.find('.operator-key').first().simulate('click');
+    wrapper
+      .find(".operator-key")
+      .first()
+      .simulate("click");
     expect(spy).toHaveBeenCalledTimes(1);
-  })
+  });
 });
 
-describe('Calculator updateDisplay tests', () => {
+describe("Calculator updateDisplay tests", () => {
   let wrapper;
 
   beforeEach(() => (wrapper = shallow(<Calculator />)));
 
-  it('updates displayValue', () => {
-    wrapper.instance().updateDisplay('7');
-    expect(wrapper.state('displayedValue')).toEqual('7');
-  })
+  it("updates displayValue", () => {
+    wrapper.instance().updateDisplay("7");
+    expect(wrapper.state("displayedValue")).toEqual("7");
+  });
 
-  it('concatenates displayValue', () => {
-    wrapper.instance().updateDisplay('3');
-    wrapper.instance().updateDisplay('2');
-    expect(wrapper.state('displayedValue')).toEqual('32');
-  })
+  it("concatenates displayValue", () => {
+    wrapper.instance().updateDisplay("3");
+    wrapper.instance().updateDisplay("2");
+    expect(wrapper.state("displayedValue")).toEqual("32");
+  });
 
   it('removes leading "0" from displayValue', () => {
-    wrapper.instance().updateDisplay('0');
-    expect(wrapper.state('displayedValue')).toEqual('0');
-    wrapper.instance().updateDisplay('1');
-    expect(wrapper.state('displayedValue')).toEqual('1');
-  })
+    wrapper.instance().updateDisplay("0");
+    expect(wrapper.state("displayedValue")).toEqual("0");
+    wrapper.instance().updateDisplay("1");
+    expect(wrapper.state("displayedValue")).toEqual("1");
+  });
 
-  it ('does not allow multiple leading "0"s in displayValue', () => {
-    wrapper.instance().updateDisplay('0');
-    wrapper.instance().updateDisplay('0');
-    wrapper.instance().updateDisplay('0');
-    expect(wrapper.state('displayedValue')).toEqual('0');
-  })
+  it('does not allow multiple leading "0"s in displayValue', () => {
+    wrapper.instance().updateDisplay("0");
+    wrapper.instance().updateDisplay("0");
+    wrapper.instance().updateDisplay("0");
+    expect(wrapper.state("displayedValue")).toEqual("0");
+  });
 
-  it('removes last char of displayValue', () => {
-    wrapper.instance().updateDisplay('3');
-    wrapper.instance().updateDisplay('4');
-    wrapper.instance().updateDisplay('CE');
-    expect(wrapper.state('displayedValue')).toEqual('3');
-  })
+  it("removes last char of displayValue", () => {
+    wrapper.instance().updateDisplay("3");
+    wrapper.instance().updateDisplay("4");
+    wrapper.instance().updateDisplay("CE");
+    expect(wrapper.state("displayedValue")).toEqual("3");
+  });
 
-  it ('prevents multiple instances of a . in displayValue', () => {
-    wrapper.instance().updateDisplay('4');
-    wrapper.instance().updateDisplay('.');
-    wrapper.instance().updateDisplay('0');
-    wrapper.instance().updateDisplay('.');
-    wrapper.instance().updateDisplay('4');
-    expect(wrapper.state('displayedValue')).toEqual('4.04');
-  })
+  it("prevents multiple instances of a . in displayValue", () => {
+    wrapper.instance().updateDisplay("4");
+    wrapper.instance().updateDisplay(".");
+    wrapper.instance().updateDisplay("0");
+    wrapper.instance().updateDisplay(".");
+    wrapper.instance().updateDisplay("4");
+    expect(wrapper.state("displayedValue")).toEqual("4.04");
+  });
 
   it('will set display value to "0" if it is equal to an empty string', () => {
-    wrapper.instance().updateDisplay('1')
-    wrapper.instance().updateDisplay('CE');
-    expect(wrapper.state('displayedValue')).toEqual('0');
+    wrapper.instance().updateDisplay("1");
+    wrapper.instance().updateDisplay("CE");
+    expect(wrapper.state("displayedValue")).toEqual("0");
+  });
+});
+
+describe("Calculate setOperator tests", () => {
+  let wrapper;
+
+  beforeEach(() => (wrapper = shallow(<Calculator />)));
+
+  // Tests to do:
+  // update value of selectedOperator
+  it('Updates the value of selectedOperator', () => {
+    wrapper.instance().setOperator('*');
+    expect(wrapper.state('selectedOperator')).toEqual('*')
+    wrapper.instance().setOperator('-');
+    expect(wrapper.state('selectedOperator')).toEqual('-')
   })
-})
+  // updates stored value to value of displayValue
+  it ('Updates the stored value of displayed value', () => {
+    wrapper.setState({ displayedValue: '3' });
+    wrapper.instance().setOperator('-');
+    expect(wrapper.state('storedValue')).toEqual('3')
+  })
+
+  // updates value of display value to 0
+  it('Updates the value of display value to "0"', () => {
+    wrapper.setState({ displayedValue: '3' });
+    wrapper.instance().setOperator('*');
+    expect(wrapper.state('displayedValue')).toEqual('0')
+  })
+
+  // selected operator is not an empty string, does not update storedValue
+  it('If selected operator is not currently empty, does not update storedValue', () => {
+    wrapper.setState({ displayedValue: '3' });
+    wrapper.instance().setOperator('*');
+    expect(wrapper.state('storedValue')).toEqual('3')
+    wrapper.instance().setOperator('-');
+    expect(wrapper.state('storedValue')).toEqual('3')
+    
+  })
+});

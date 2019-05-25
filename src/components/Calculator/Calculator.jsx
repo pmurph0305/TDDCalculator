@@ -18,35 +18,42 @@ class Calculator extends React.Component {
       // Operator selected for math
       selectedOperator: "",
       // Stored calculated value for math
-      storedValue: 0
+      storedValue: '0'
     };
   }
 
   updateDisplay = value => {
-    let {displayedValue} = this.state;
+    let { displayedValue } = this.state;
     if (displayedValue)
-    if (displayedValue=== "0") {
-      displayedValue = value;
-    } else if (value === 'CE') {
-      if (displayedValue.length > 1) {
-        displayedValue = displayedValue.slice(0,displayedValue.length-1);
+      if (displayedValue === "0") {
+        displayedValue = value;
+      } else if (value === "CE") {
+        if (displayedValue.length > 1) {
+          displayedValue = displayedValue.slice(0, displayedValue.length - 1);
+        } else {
+          displayedValue = "0";
+        }
+      } else if (value === ".") {
+        if (displayedValue.includes(".") === false) {
+          displayedValue += ".";
+        }
       } else {
-        displayedValue = '0'
+        displayedValue += value;
       }
-    } else if (value === '.') {
-      if (displayedValue.includes('.') === false) {
-        displayedValue += '.'
-      }
-    }
-    else {
-      displayedValue += value;
-    }
-    this.setState({displayedValue: displayedValue})
+    this.setState({ displayedValue: displayedValue });
   };
 
   callOperator = () => {};
 
-  setOperator = () => {};
+  setOperator = (operator) => {
+    let { selectedOperator, displayedValue, storedValue } = this.state;
+    if (selectedOperator === '') {
+      storedValue = displayedValue;
+      displayedValue = '0'
+    }
+    selectedOperator = operator;
+    this.setState({ selectedOperator, displayedValue, storedValue })
+  };
 
   render() {
     const { displayedValue, numbers, operators } = this.state;
