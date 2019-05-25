@@ -1,7 +1,7 @@
 import React from "react";
 
 import Display from "../Display/Display";
-import KeyPad from '../Keypad/Keypad';
+import KeyPad from "../Keypad/Keypad";
 
 import "./Calculator.css";
 
@@ -12,9 +12,9 @@ class Calculator extends React.Component {
       // Value to be displayed with Display
       displayedValue: "0",
       // Numbers for Keys
-      numbers: ['9', '8', '7', '6', '5', '4', '3', '2', '1', '.', '0','CE'],
+      numbers: ["9", "8", "7", "6", "5", "4", "3", "2", "1", ".", "0", "CE"],
       // Operators for Keys
-      operators: ['+', '-', '/', '*'],
+      operators: ["+", "-", "/", "*"],
       // Operator selected for math
       selectedOperator: "",
       // Stored calculated value for math
@@ -22,24 +22,26 @@ class Calculator extends React.Component {
     };
   }
 
-  updateDisplay = (value) => {
-    this.setState({displayedValue: value})
-  }
+  updateDisplay = value => {
+    if (this.state.displayedValue === "0") {
+      this.setState({ displayedValue: value });
+    } else {
+      this.setState(state => {
+        return { displayedValue: state.displayedValue + value };
+      });
+    }
+  };
 
-  callOperator = () => {
+  callOperator = () => {};
 
-  }
-
-  setOperator = () => {
-
-  }
+  setOperator = () => {};
 
   render() {
     const { displayedValue, numbers, operators } = this.state;
     return (
       <div className="calculator-container">
         <Display displayedValue={displayedValue} />
-        <KeyPad 
+        <KeyPad
           callOperator={this.callOperator}
           numbers={numbers}
           operators={operators}
