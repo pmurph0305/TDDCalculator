@@ -28,7 +28,7 @@ class Calculator extends React.Component {
     if (displayedValue === "0") {
       displayedValue = value;
     } else if (value === "CE") {
-      if (displayedValue.length > 1 && displayedValue != "CE") {
+      if (displayedValue.length > 1 && displayedValue !== "CE") {
         displayedValue = displayedValue.slice(0, displayedValue.length - 1);
       } else {
         displayedValue = "0";
@@ -46,10 +46,10 @@ class Calculator extends React.Component {
   callOperator = () => {
     let { displayedValue, storedValue, selectedOperator } = this.state;
 
-    let updatedStoredValue = displayedValue;
+    //let updatedStoredValue = displayedValue;
     displayedValue = parseFloat(displayedValue);
     storedValue = parseFloat(storedValue);
-
+    
     if (selectedOperator === "+") {
       displayedValue = storedValue + displayedValue;
     } else if (selectedOperator === "-") {
@@ -67,21 +67,31 @@ class Calculator extends React.Component {
     if (displayedValue === "NaN" || displayedValue === "Infinity") {
       displayedValue = "0";
     }
+
     this.setState({
       displayedValue,
       selectedOperator,
-      storedValue: updatedStoredValue
+      storedValue: displayedValue
     });
   };
+
+
 
   setOperator = operator => {
     let { selectedOperator, displayedValue, storedValue } = this.state;
     if (selectedOperator === "") {
       storedValue = displayedValue;
+      selectedOperator = operator;
       displayedValue = "0";
+      this.setState({ selectedOperator, displayedValue, storedValue });
+    } else if (storedValue !== '0' && displayedValue !== '0') {
+      this.callOperator();
+      selectedOperator = operator;
+      this.setState({selectedOperator, displayedValue: '0'})
+    } else {
+      selectedOperator = operator;
+      this.setState({ selectedOperator, displayedValue, storedValue }); 
     }
-    selectedOperator = operator;
-    this.setState({ selectedOperator, displayedValue, storedValue });
   };
 
   render() {
