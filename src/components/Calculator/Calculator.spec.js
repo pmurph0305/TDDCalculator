@@ -205,4 +205,36 @@ describe('Calculate callOperator tests', () => {
     wrapper.instance().callOperator();
     expect(wrapper.state('displayedValue')).toEqual('4');
   })
+
+  // Displays 0 if NaN result
+  it("Updates display to '0' if operation results in 'NaN'", () => {
+    wrapper.setState({ storedValue: '12' });
+    wrapper.setState({ displayedValue: 't' });
+    wrapper.setState({ selectedOperator: '/' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('0');
+  })
+
+  // Displays 0 if Infinity result
+  it("Updates display to '0' if operation results in 'Infinity'", () => {
+    wrapper.setState({ storedValue: '12' });
+    wrapper.setState({ displayedValue: '0' });
+    wrapper.setState({ selectedOperator: '/' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('0');
+  })
+
+  // Displays 0 if missingv alues for stored or selected operator
+  it("Updates display to '0' is missing stored or selected operator'", () => {
+    wrapper.setState({ storedValue: '' });
+    wrapper.setState({ displayedValue: '10' });
+    wrapper.setState({ selectedOperator: '' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('0');
+    wrapper.setState({ storedValue: '' });
+    wrapper.setState({ displayedValue: '9' });
+    wrapper.setState({ selectedOperator: '+' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('0');
+  })
 })
