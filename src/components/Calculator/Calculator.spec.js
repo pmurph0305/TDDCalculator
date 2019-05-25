@@ -65,6 +65,15 @@ describe('Mounted Calculator Tests', () => {
     wrapper.find('.operator-key').first().simulate('click');
     expect(spy).toHaveBeenCalledTimes(1);
   })
-
-
 });
+
+describe('Calculator updateDisplay tests', () => {
+  let wrapper;
+
+  beforeEach(() => (wrapper = shallow(<Calculator />)));
+
+  it('updates displayValue', () => {
+    wrapper.instance().updateDisplay('7');
+    expect(wrapper.state('displayedValue')).toEqual('7');
+  })
+})
