@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Calculator from '../Calculator/Calculator'
+import Calculator from "../Calculator/Calculator";
 
-import './App.css'
-
+import "./App.css";
 
 const App = () => (
-    <div className='app-container'>
-        <Calculator/>
-    </div>
+  <div className="app-container">
+    <Calculator />
+  </div>
 );
 
 export default App;

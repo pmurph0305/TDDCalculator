@@ -1,26 +1,28 @@
 :root {
-    /* Colors */
-    --calculator-background-color: #696969;
+  /* Colors */
+  --calculator-background-color: #696969;
 
-    /* Orbitron font */
-    --main-font: 'Orbitron', sans-serif;
+  /* Orbitron font */
+  --main-font: "Orbitron", sans-serif;
 
-    /* Calculator  */
-    --calculator-height: 75%;
-    --calculator-width: 40%;
+  /* Calculator  */
+  --calculator-height: 75%;
+  --calculator-width: 40%;
 }
 
 /* Media queries */
 @media screen and (max-width: 1024px) {
-    :root {
-      /* calculator dimensions */
-      --calculator-height: 100%;
-      --calculator-width: 100%;
-    }
+  :root {
+    /* calculator dimensions */
+    --calculator-height: 100%;
+    --calculator-width: 100%;
   }
+}
 
 /* app css reset */
-body, div, p {
-    margin: 0;
-    padding: 0;
+body,
+div,
+p {
+  margin: 0;
+  padding: 0;
 }
