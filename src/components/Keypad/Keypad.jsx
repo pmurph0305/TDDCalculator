@@ -7,14 +7,23 @@ const KeyPad = ({
   operators,
   setOperator,
   updateDisplay
-}) => <div className="keypad-container" />;
+}) => {
+  const numberKeys = numbers.map(num => <p key={num}>{num}</p>)
+  return (
+    <div className="keypad-container">
+      <div className="numbers-container">
+        {numberKeys}
+      </div>
+    </div>
+  );
+};
 
 KeyPad.propTypes = {
   callOperator: PropTypes.func.isRequired,
   numbers: PropTypes.array.isRequired,
   operators: PropTypes.array.isRequired,
   setOperator: PropTypes.func.isRequired,
-  updateDisplay: PropTypes.func.isRequired,
-}
+  updateDisplay: PropTypes.func.isRequired
+};
 
 export default KeyPad;

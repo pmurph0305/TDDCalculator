@@ -18,8 +18,8 @@ describe("Keypad tests", () => {
       ))
   );
 
-  it("Renders a div", () => {
-    expect(wrapper.find("div").length).toEqual(1);
+  it("Renders 2 divs", () => {
+    expect(wrapper.find("div").length).toEqual(2);
   });
 
   it("Renders the values of numbers", () => {
