@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --display-background-color: #1d1f1f;
+  --calculator-background-color: #696969;
 
   /* Orbitron font */
   --main-font: "Orbitron", sans-serif;
@@ -12,13 +13,17 @@
 
   --display-text-weight: 400;
 
-  /* Calculator  */
-  --calculator-height: 75%;
+  /* Calculator  dimensions*/
+  --calculator-height: 72%;
   --calculator-width: 40%;
 
   /* Display dimensions */
-  --display-height: 25%;
-  --display-width: 90%;
+  --display-height: 24%;
+  --display-width: 92%;
+
+  /* Keypad dimensions */
+  --keypad-height: 72%;
+  --keypad-width: 96%;
 }
 
 /* Media queries */
