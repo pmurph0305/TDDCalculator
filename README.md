@@ -1,24 +1,2 @@
 # TDD React
-
-## Local Setup
-```sh
-$ git clone git@github.com:testdrivenio/react-calculator.git
-```
-
-```sh
-$ cd react-calculator
-```
-
-```sh
-$ yarn install
-```
-
-## Run Locally
-```sh
-$ yarn start
-```
-
-## Run Tests
-```sh
-$ yarn test
-```
+Created using TDD in React following testdriven.io to learn more about TDD using Jest w/ Enzyme in a React project.
