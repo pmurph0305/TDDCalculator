@@ -50,12 +50,22 @@ describe('Mounted Calculator Tests', () => {
     expect(spy).toHaveBeenCalledTimes(2);
   })
 
-  it('Calls setOperator when operator key is clicked', () => {
+  it('Calls callOperator when submit key is clicked', () => {
     const spy = jest.spyOn(wrapper.instance(), 'callOperator');
+    wrapper.instance().forceUpdate();
+    expect(spy).toHaveBeenCalledTimes(0);
+    wrapper.find('.submit-key').first().simulate('click');
+    expect(spy).toHaveBeenCalledTimes(1);
+  })
+
+  it('Calls setOperator when operator key is clicked', () => {
+    const spy = jest.spyOn(wrapper.instance(), 'setOperator');
     wrapper.instance().forceUpdate();
     expect(spy).toHaveBeenCalledTimes(0);
     wrapper.find('.operator-key').first().simulate('click');
     expect(spy).toHaveBeenCalledTimes(1);
   })
-  
+
+
+
 });
