@@ -76,4 +76,10 @@ describe('Calculator updateDisplay tests', () => {
     wrapper.instance().updateDisplay('7');
     expect(wrapper.state('displayedValue')).toEqual('7');
   })
+
+  it('concatenates displayValue', () => {
+    wrapper.instance().updateDisplay('3');
+    wrapper.instance().updateDisplay('2');
+    expect(wrapper.state('displayedValue')).toEqual('32');
+  })
 })
