@@ -102,6 +102,14 @@ describe('Calculator updateDisplay tests', () => {
     wrapper.instance().updateDisplay('4');
     wrapper.instance().updateDisplay('CE');
     expect(wrapper.state('displayedValue')).toEqual('3');
+  })
 
+  it ('prevents multiple instances of a . in displayValue', () => {
+    wrapper.instance().updateDisplay('4');
+    wrapper.instance().updateDisplay('.');
+    wrapper.instance().updateDisplay('0');
+    wrapper.instance().updateDisplay('.');
+    wrapper.instance().updateDisplay('4');
+    expect(wrapper.state('displayedValue')).toEqual('4.04');
   })
 })

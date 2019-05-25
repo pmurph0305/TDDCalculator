@@ -29,7 +29,14 @@ class Calculator extends React.Component {
       this.setState(state=> {
         return {displayedValue: state.displayedValue.slice(0,state.displayedValue.length-1)}
       })
-    } else {
+    } else if (value === '.') {
+      if (this.state.displayedValue.includes('.') === false) {
+        this.setState(state => {
+          return { displayedValue: state.displayedValue + value };
+        });
+      }
+    }
+    else {
       this.setState(state => {
         return { displayedValue: state.displayedValue + value };
       });
