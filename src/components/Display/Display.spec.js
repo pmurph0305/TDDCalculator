@@ -15,4 +15,8 @@ describe("Display tests", () => {
     wrapper.setProps({ displayedValue: "testing" });
     expect(wrapper.text()).toEqual("testing");
   });
+
+  it("Should match snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });
