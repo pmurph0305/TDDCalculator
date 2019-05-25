@@ -4,6 +4,7 @@ import { shallow } from "enzyme";
 
 import Calculator from "./Calculator";
 import Display from "../Display/Display";
+import Keypad from '../Keypad/Keypad';
 
 describe("Calculator tests", () => {
   let wrapper;
@@ -14,11 +15,19 @@ describe("Calculator tests", () => {
     expect(wrapper.find("div").length).toEqual(1);
   });
 
-  it("Contains the <Display /> component", () => {
+  it("Should render Display & Keypad Components", () => {
     expect(
-      wrapper.containsMatchingElement(
-        <Display displayedValue={wrapper.instance().state.displayedValue} />
-      )
+      wrapper.containsAllMatchingElements([
+        <Display displayedValue={wrapper.instance().state.displayedValue} />,
+        <Keypad 
+          callOperator={wrapper.instance().callOperator}
+          numbers={wrapper.instance().state.numbers}
+          operators={wrapper.instance().state.operators}
+          setOperator={wrapper.instance().setOperator}
+          updateDisplay={wrapper.instance().updateDisplay}
+        />
+      ])
     ).toEqual(true);
   });
+
 });
