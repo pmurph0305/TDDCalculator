@@ -43,7 +43,8 @@ class Calculator extends React.Component {
     this.setState({ displayedValue: displayedValue });
   };
 
-  callOperator = () => {};
+  callOperator = () => {
+  };
 
   setOperator = (operator) => {
     let { selectedOperator, displayedValue, storedValue } = this.state;

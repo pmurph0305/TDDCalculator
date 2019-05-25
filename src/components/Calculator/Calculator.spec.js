@@ -136,7 +136,6 @@ describe("Calculate setOperator tests", () => {
 
   beforeEach(() => (wrapper = shallow(<Calculator />)));
 
-  // Tests to do:
   // update value of selectedOperator
   it('Updates the value of selectedOperator', () => {
     wrapper.instance().setOperator('*');
@@ -168,3 +167,42 @@ describe("Calculate setOperator tests", () => {
     
   })
 });
+
+describe('Calculate callOperator tests', () => {
+  let wrapper;
+
+  beforeEach(() => (wrapper = shallow(<Calculator />)));
+
+  // update display value to sum of stored and display value
+  it('Updates display value to sum of stored + displayedValue', () => {
+    wrapper.setState({ storedValue: '7' });
+    wrapper.setState({ displayedValue: '3' });
+    wrapper.setState({ selectedOperator: '+' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('10');
+  })
+  // update display value to difference of stored and display value
+  it('Updates display value to difference of stored - displayedValue', () => {
+    wrapper.setState({ storedValue: '5' });
+    wrapper.setState({ displayedValue: '2' });
+    wrapper.setState({ selectedOperator: '-' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('3');
+  })
+  // update display value to product of stored and display value
+  it('Updates display value to product of stored * displayedValue', () => {
+    wrapper.setState({ storedValue: '3' });
+    wrapper.setState({ displayedValue: '6' });
+    wrapper.setState({ selectedOperator: '*' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('18');
+  })
+  // update display value to quotient of stored and display value
+  it('Updates display value to quotient of stored / displayedValue', () => {
+    wrapper.setState({ storedValue: '12' });
+    wrapper.setState({ displayedValue: '3' });
+    wrapper.setState({ selectedOperator: '/' });
+    wrapper.instance().callOperator();
+    expect(wrapper.state('displayedValue')).toEqual('3');
+  })
+})
