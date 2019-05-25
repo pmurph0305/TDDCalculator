@@ -21,4 +21,9 @@ describe("Keypad tests", () => {
   it("Renders a div", () => {
     expect(wrapper.find("div").length).toEqual(1);
   });
+
+  it("Renders the values of numbers", () => {
+    wrapper.setProps({numbers: ['0','1','2','3']});
+    expect(wrapper.find('.numbers-container').text()).toEqual('0123')
+  })
 });
