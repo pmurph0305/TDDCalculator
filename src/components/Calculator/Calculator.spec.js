@@ -158,14 +158,27 @@ describe("Calculate setOperator tests", () => {
   })
 
   // selected operator is not an empty string, does not update storedValue
-  it('If selected operator is not currently empty, does not update storedValue', () => {
+  it('If selected operator is not currently empty and no stored value, does not update storedValue', () => {
     wrapper.setState({ displayedValue: '3' });
     wrapper.instance().setOperator('*');
     expect(wrapper.state('storedValue')).toEqual('3')
     wrapper.instance().setOperator('-');
     expect(wrapper.state('storedValue')).toEqual('3')
-    
   })
+
+  it('If displayed & stored value are not empty, updates stored value to result and displayed value to 0', () => {
+    wrapper.setState({ displayedValue: '3' });
+    wrapper.instance().setOperator('*');
+    wrapper.setState({ storedValue: '4' });
+    wrapper.instance().setOperator('+');
+    expect(wrapper.state('storedValue')).toEqual('12');
+    expect(wrapper.state('displayedValue')).toEqual('0');
+    wrapper.setState({ displayedValue: '2' });
+    wrapper.instance().setOperator('+');
+    expect(wrapper.state('storedValue')).toEqual('14');
+    expect(wrapper.state('displayedValue')).toEqual('0');
+  })
+  
 });
 
 describe('Calculate callOperator tests', () => {
