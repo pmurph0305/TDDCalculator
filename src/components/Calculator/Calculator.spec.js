@@ -139,7 +139,11 @@ describe("Calculator updateDisplay tests", () => {
     expect(wrapper.state('storedValue')).toEqual('3');
     wrapper.instance().updateDisplay('1');
     expect(wrapper.state('displayedValue')).toEqual('1');
+  })
 
+  it('Does not display CE if there if display is 0', () => {
+    wrapper.instance().updateDisplay("CE");
+    expect(wrapper.state("displayedValue")).toEqual("0");
   })
 });
 
