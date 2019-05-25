@@ -112,4 +112,10 @@ describe('Calculator updateDisplay tests', () => {
     wrapper.instance().updateDisplay('4');
     expect(wrapper.state('displayedValue')).toEqual('4.04');
   })
+
+  it('will set display value to "0" if it is equal to an empty string', () => {
+    wrapper.instance().updateDisplay('1')
+    wrapper.instance().updateDisplay('CE');
+    expect(wrapper.state('displayedValue')).toEqual('0');
+  })
 })
