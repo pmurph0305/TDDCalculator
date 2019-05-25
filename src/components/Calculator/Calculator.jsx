@@ -44,6 +44,21 @@ class Calculator extends React.Component {
   };
 
   callOperator = () => {
+    let { displayedValue, storedValue, selectedOperator } = this.state;
+    displayedValue = parseInt(displayedValue);
+    storedValue = parseInt(storedValue);
+
+    if (selectedOperator === '+') {
+      displayedValue = storedValue + displayedValue;
+    } else if (selectedOperator === '-') {
+      displayedValue = storedValue - displayedValue;
+    } else if (selectedOperator === '*') {
+      displayedValue = storedValue * displayedValue;
+    } else if (selectedOperator === '/') {
+      displayedValue = storedValue / displayedValue;
+    }
+
+    this.setState({ displayedValue: displayedValue.toString()})
   };
 
   setOperator = (operator) => {

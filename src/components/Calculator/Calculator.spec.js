@@ -203,6 +203,6 @@ describe('Calculate callOperator tests', () => {
     wrapper.setState({ displayedValue: '3' });
     wrapper.setState({ selectedOperator: '/' });
     wrapper.instance().callOperator();
-    expect(wrapper.state('displayedValue')).toEqual('3');
+    expect(wrapper.state('displayedValue')).toEqual('4');
   })
 })
