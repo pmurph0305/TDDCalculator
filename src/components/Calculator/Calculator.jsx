@@ -22,6 +22,10 @@ class Calculator extends React.Component {
     };
   }
 
+  updateDisplay = () => {
+    
+  }
+
   render() {
     const { displayedValue, numbers, operators } = this.state;
     return (

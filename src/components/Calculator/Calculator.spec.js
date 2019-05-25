@@ -50,4 +50,5 @@ describe('Mounted Calculator Tests', () => {
     expect(spy).toHaveBeenCalledTimes(2);
   })
 
+
 })

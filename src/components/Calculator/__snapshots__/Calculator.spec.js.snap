@@ -49,7 +49,7 @@ ShallowWrapper {
                             ]
           }
           setOperator={undefined}
-          updateDisplay={undefined}
+          updateDisplay={[Function]}
 />,
       ],
       "className": "calculator-container",
@@ -94,7 +94,7 @@ ShallowWrapper {
             "*",
           ],
           "setOperator": undefined,
-          "updateDisplay": undefined,
+          "updateDisplay": [Function],
         },
         "ref": null,
         "rendered": null,
@@ -140,7 +140,7 @@ ShallowWrapper {
                                   ]
             }
             setOperator={undefined}
-            updateDisplay={undefined}
+            updateDisplay={[Function]}
 />,
         ],
         "className": "calculator-container",
@@ -185,7 +185,7 @@ ShallowWrapper {
               "*",
             ],
             "setOperator": undefined,
-            "updateDisplay": undefined,
+            "updateDisplay": [Function],
           },
           "ref": null,
           "rendered": null,

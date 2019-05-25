@@ -26,6 +26,7 @@ ShallowWrapper {
         className="key-value"
 />,
       "className": "key-container ",
+      "onClick": [Function],
     },
     "ref": null,
     "rendered": Object {
@@ -52,6 +53,7 @@ ShallowWrapper {
           className="key-value"
 />,
         "className": "key-container ",
+        "onClick": [Function],
       },
       "ref": null,
       "rendered": Object {
