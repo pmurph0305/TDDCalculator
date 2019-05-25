@@ -8,12 +8,15 @@ const KeyPad = ({
   setOperator,
   updateDisplay
 }) => {
-  const numberKeys = numbers.map(num => <p key={num}>{num}</p>)
+  const numberKeys = numbers.map(num => <p key={num}>{num}</p>);
+  const operatorKeys = operators.map(operator => (
+    <p key={operator}>{operator}</p>
+  ));
+
   return (
     <div className="keypad-container">
-      <div className="numbers-container">
-        {numberKeys}
-      </div>
+      <div className="numbers-container">{numberKeys}</div>
+      <div className="operators-container">{operatorKeys}</div>
     </div>
   );
 };
