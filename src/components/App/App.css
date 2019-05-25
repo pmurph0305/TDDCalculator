@@ -1,0 +1,9 @@
+.app-container {
+    /* use all space */
+    height: 100vh;
+    width: 100vh;
+    /* flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

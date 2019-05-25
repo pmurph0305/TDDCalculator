@@ -1,0 +1,10 @@
+:root {
+    /* Orbitron font */
+    --main-font: 'Orbitron', sans-serif;
+}
+
+/* app css reset */
+body, div, p {
+    margin: 0;
+    padding: 0;
+}
