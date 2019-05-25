@@ -18,66 +18,70 @@ class Calculator extends React.Component {
       // Operator selected for math
       selectedOperator: "",
       // Stored calculated value for math
-      storedValue: '0'
+      storedValue: "0"
     };
   }
 
   updateDisplay = value => {
     let { displayedValue } = this.state;
 
-      if (displayedValue === "0") {
-        displayedValue = value;
-      } else if (value === "CE") {
-        if (displayedValue.length > 1 && displayedValue != "CE") {
-          displayedValue = displayedValue.slice(0, displayedValue.length - 1);
-        } else {
-          displayedValue = "0";
-        }
-      } else if (value === ".") {
-        if (displayedValue.includes(".") === false) {
-          displayedValue += ".";
-        }
+    if (displayedValue === "0") {
+      displayedValue = value;
+    } else if (value === "CE") {
+      if (displayedValue.length > 1 && displayedValue != "CE") {
+        displayedValue = displayedValue.slice(0, displayedValue.length - 1);
       } else {
-        displayedValue += value;
+        displayedValue = "0";
       }
+    } else if (value === ".") {
+      if (displayedValue.includes(".") === false) {
+        displayedValue += ".";
+      }
+    } else {
+      displayedValue += value;
+    }
     this.setState({ displayedValue: displayedValue });
   };
 
   callOperator = () => {
     let { displayedValue, storedValue, selectedOperator } = this.state;
 
-      let updatedStoredValue = displayedValue;
-      displayedValue = parseInt(displayedValue);
-      storedValue = parseInt(storedValue);
+    let updatedStoredValue = displayedValue;
+    displayedValue = parseFloat(displayedValue);
+    storedValue = parseFloat(storedValue);
 
-      if (selectedOperator === '+') {
-        displayedValue = storedValue + displayedValue;
-      } else if (selectedOperator === '-') {
-        displayedValue = storedValue - displayedValue;
-      } else if (selectedOperator === '*') {
-        displayedValue = storedValue * displayedValue;
-      } else if (selectedOperator === '/') {
-        displayedValue = storedValue / displayedValue;
-      } else {
-        displayedValue = '0'
-      }
-
-      displayedValue = displayedValue.toString();
-      selectedOperator = '';
-    if (displayedValue === 'NaN' || displayedValue === 'Infinity') {
-      displayedValue = '0';
+    if (selectedOperator === "+") {
+      displayedValue = storedValue + displayedValue;
+    } else if (selectedOperator === "-") {
+      displayedValue = storedValue - displayedValue;
+    } else if (selectedOperator === "*") {
+      displayedValue = storedValue * displayedValue;
+    } else if (selectedOperator === "/") {
+      displayedValue = storedValue / displayedValue;
+    } else {
+      displayedValue = "0";
     }
-    this.setState({ displayedValue, selectedOperator, storedValue: updatedStoredValue })
+
+    displayedValue = displayedValue.toString();
+    selectedOperator = "";
+    if (displayedValue === "NaN" || displayedValue === "Infinity") {
+      displayedValue = "0";
+    }
+    this.setState({
+      displayedValue,
+      selectedOperator,
+      storedValue: updatedStoredValue
+    });
   };
 
-  setOperator = (operator) => {
+  setOperator = operator => {
     let { selectedOperator, displayedValue, storedValue } = this.state;
-    if (selectedOperator === '') {
+    if (selectedOperator === "") {
       storedValue = displayedValue;
-      displayedValue = '0'
+      displayedValue = "0";
     }
     selectedOperator = operator;
-    this.setState({ selectedOperator, displayedValue, storedValue })
+    this.setState({ selectedOperator, displayedValue, storedValue });
   };
 
   render() {
