@@ -24,11 +24,11 @@ class Calculator extends React.Component {
 
   updateDisplay = value => {
     let { displayedValue } = this.state;
-    if (displayedValue)
+
       if (displayedValue === "0") {
         displayedValue = value;
       } else if (value === "CE") {
-        if (displayedValue.length > 1) {
+        if (displayedValue.length > 1 && displayedValue != "CE") {
           displayedValue = displayedValue.slice(0, displayedValue.length - 1);
         } else {
           displayedValue = "0";
@@ -45,20 +45,29 @@ class Calculator extends React.Component {
 
   callOperator = () => {
     let { displayedValue, storedValue, selectedOperator } = this.state;
-    displayedValue = parseInt(displayedValue);
-    storedValue = parseInt(storedValue);
 
-    if (selectedOperator === '+') {
-      displayedValue = storedValue + displayedValue;
-    } else if (selectedOperator === '-') {
-      displayedValue = storedValue - displayedValue;
-    } else if (selectedOperator === '*') {
-      displayedValue = storedValue * displayedValue;
-    } else if (selectedOperator === '/') {
-      displayedValue = storedValue / displayedValue;
+      let updatedStoredValue = displayedValue;
+      displayedValue = parseInt(displayedValue);
+      storedValue = parseInt(storedValue);
+
+      if (selectedOperator === '+') {
+        displayedValue = storedValue + displayedValue;
+      } else if (selectedOperator === '-') {
+        displayedValue = storedValue - displayedValue;
+      } else if (selectedOperator === '*') {
+        displayedValue = storedValue * displayedValue;
+      } else if (selectedOperator === '/') {
+        displayedValue = storedValue / displayedValue;
+      } else {
+        displayedValue = '0'
+      }
+
+      displayedValue = displayedValue.toString();
+      selectedOperator = '';
+    if (displayedValue === 'NaN' || displayedValue === 'Infinity') {
+      displayedValue = '0';
     }
-
-    this.setState({ displayedValue: displayedValue.toString()})
+    this.setState({ displayedValue, selectedOperator, storedValue: updatedStoredValue })
   };
 
   setOperator = (operator) => {
