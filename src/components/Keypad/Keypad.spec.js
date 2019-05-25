@@ -26,4 +26,9 @@ describe("Keypad tests", () => {
     wrapper.setProps({numbers: ['0','1','2','3']});
     expect(wrapper.find('.numbers-container').text()).toEqual('0123')
   })
+
+  it("Renders the values of operators", () => {
+    wrapper.setProps({operators: ['+','-','*','/']});
+    expect(wrapper.find('.operators-container').text()).toEqual('+-*/')
+  })
 });
